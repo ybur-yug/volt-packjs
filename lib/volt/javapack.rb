@@ -1,4 +1,3 @@
-#require "volt/javapack/version"
 require 'net/http'
 require 'fileutils'
 
@@ -16,7 +15,7 @@ module Volt
         @volt_gem_name = "volt-#{@lib_name}"
         create_component @lib_name
         inject_js
-        # inject_gem
+        inject_gem
       end
       
       def create_component(name, bundle_exec=true)

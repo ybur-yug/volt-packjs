@@ -5,7 +5,7 @@ require 'volt/javapack/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "volt-javapack"
-  spec.version       = Volt::Javapack::VERSION
+  spec.version       = '0.0.1'
   spec.authors       = ["Robert H Grayson II"]
   spec.email         = ["bobbygrayson@gmail.com"]
   spec.summary       = %q{Pass a link to a JS file, have it added to your Volt app}
