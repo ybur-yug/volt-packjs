@@ -37,9 +37,9 @@ module Volt
         `gem install #{@volt_gem_name}-0.0.1.gem`
       end
 
-      #def inject_gem  
-      #  `bundle inject #{@volt_gem_name}`
-      #end
+      def inject_gem  
+        `echo "gem '#{@volt_gem_name}'" >> Gemfile`
+      end
     end
 
     class JSGrab
