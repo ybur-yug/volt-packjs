@@ -15,8 +15,8 @@ describe Volt::Javapack::JSGrab do
 end
 
 describe Volt::Javapack::JSWrite do
-  let(:writer) { Volt::Javapack::JSWrite.new 'fiuhgriu' } # obvs real JS code is desired but any string workd
-                                                          # for the purpose of this test
+  let(:writer) { Volt::Javapack::JSWrite.new('fiuhgriu', 'jquery') } # obvs real JS code is desired but any string workd
+                                                                     # for the purpose of this test
   it "can create a component to inject js assets into" do
     writer.create_component('jquery')
     expect(`ls`.include? "volt-jquery").to eq true

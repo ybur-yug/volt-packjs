@@ -14,10 +14,9 @@ module Volt
         @js = js 
         @lib_name = lib_name
         @volt_gem_name = "volt-#{@lib_name}"
-        create_component
+        create_component @lib_name
         inject_js
         inject_gem
-        add_component
       end
       
       def create_component(name, bundle_exec=true)
@@ -25,15 +24,22 @@ module Volt
       end
 
       def inject_js
-        FileUtils.mkdir "volt-#{@lib_name}/app/main/assets/js/#{@lib_name}"
-        File.open("#{@lib_name}.js", "wb") do |f|
+        assets_path = "volt-#{@lib_name}/app/#{@lib_name}/assets/js/"
+        FileUtils.mkdir assets_path + "#{@lib_name}"
+        File.open("#{assets_path}/#{@lib_name}.js", "wb") do |f|
           f.write(@js)
         end
       end
 
-      def inject_gem  
-        `bundle inject #{@volt_gem_name}`
+      def build_gem
+        `cd #{@volt_gem_name}`
+        `gem build #{@volt_gem_name}.gemspec`
+        `gem install #{@volt_gem_name}-0.0.1.gem`
       end
+
+      #def inject_gem  
+      #  `bundle inject #{@volt_gem_name}`
+      #end
     end
 
     class JSGrab
