@@ -1,4 +1,4 @@
-# Volt-Javapack
+# Volt-Packjs
 
 A simple means to package JS for volt in a modular way.
 
